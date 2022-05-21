@@ -42,13 +42,17 @@ public class PersonaController {
     public Persona editPersona(@PathVariable Long id,
             @RequestParam("nombre")String nuevoNombre, 
              @RequestParam("apellido")String nuevoApellido, 
-             @RequestParam("img")String nuevoImg){
+             @RequestParam("img")String nuevoImg,
+             @RequestParam("position")String nuevoPosition,
+             @RequestParam("aboutMe")String nuevoaboutMe){
         
         Persona persona= ipersonaService.findPersona(id);
         
         persona.setNombre(nuevoNombre);
         persona.setApellido(nuevoApellido);
         persona.setImg(nuevoImg);
+        persona.setPosition(nuevoPosition);
+        persona.setAboutMe(nuevoaboutMe);
         
         ipersonaService.savePersona(persona);
         return persona;

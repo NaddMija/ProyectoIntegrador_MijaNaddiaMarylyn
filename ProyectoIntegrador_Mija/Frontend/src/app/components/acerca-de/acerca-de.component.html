@@ -1,17 +1,15 @@
 <div class="row">
     <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-        <img src="../../../assets/Imagen4.jpg" class="img-fluid" id="fotoperfil">
+        <img src= {{persona.img}}  class="img-fluid" id="fotoperfil">
     </div>
  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
      <p id="nombre">{{persona.nombre}} {{persona.apellido}} </p>
-     <p>Full Stack Developer Jr</p>
+     <p>{{persona.position}} </p>
  </div>
  <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
      <span>
          <h1>Acerca de mi</h1>
-         <p>Soy una profesional con sólida trayectoria en áreas de administración, archivo y atención al cliente.
-            He trabajado en proyectos referentes a la administración, procesamiento, y digitalización de documentos para grandes clientes del sector bancario y médico en Buenos Aires. Poseo muy buenas competencias y habilidades para la conformación de equipos de trabajo, orientados a la obtención de resultados. Con gran iniciativa, capacidad de autogestión y adaptación a ambientes cambiantes. Egresada como profesora en Educación Secundaria y ahora como Desarrolladora Full Stack Junior gracias al Programa Argentina Programa.
-            </p>
+         <p>{{persona.aboutMe}} </p>
      </span>
  </div>
 </div>
