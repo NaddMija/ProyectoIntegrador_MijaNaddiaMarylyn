@@ -1,1 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+.ng-valid:not(form).ng-touched{
+    border-left: 5px solid #42a948;
+}
+.ng-invalid:not(form).ng-touched{
+    border-left: 5PX solid #a94442;
+}/* You can add global styles to this file, and also import other style files */

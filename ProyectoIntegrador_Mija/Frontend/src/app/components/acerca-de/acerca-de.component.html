@@ -3,7 +3,7 @@
         <img src= {{persona.img}}  class="img-fluid" id="fotoperfil">
     </div>
  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-     <p id="nombre">{{persona.nombre}} {{persona.apellido}} </p>
+     <p id="nom">{{persona.nombre}} {{persona.apellido}} </p>
      <p>{{persona.position}} </p>
  </div>
  <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
@@ -11,5 +11,95 @@
          <h1>Acerca de mi</h1>
          <p>{{persona.aboutMe}} </p>
      </span>
+***********
+<button *ngIf="usuarioAutenticado" type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#modalAcerca">Editar</button>
+
+<!-- Button trigger modal -->
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="modalAcerca" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Editar Acerca</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+            <form [formGroup]="form">
+                <div class="mb-3">
+                  <label for="nombre" class="form-label">Nombre</label>
+                  <input type="text" class="form-control" id="nombre" formControlName="nombre">
+                  <div *ngIf="nombre?.invalid && nombre?.touched">
+                      <div *ngIf="nombre?.errors?.['required'] "class="text-danger">
+                          EL nombre es requerido
+                      </div>
+                      <div *ngIf="nombre?.errors?.['minlength'] ">
+                       El Nombre debe tener un mínimo de 5 caracteres
+                      </div>
+                  </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="apellido" class="form-label">Apellido</label>
+                    <input type="text" class="form-control" id="apellido" formControlName="apellido">
+                    <div *ngIf="apellido?.invalid && apellido?.touched">
+                        <div *ngIf="apellido?.errors?.['required'] "class="text-danger">
+                            EL Apellido es requerido
+                        </div>
+                        <div *ngIf="apellido?.errors?.['minlength'] ">
+                         El Apellido debe tener un mínimo de 5 caracteres
+                        </div>
+                    </div>
+                  </div>
+                  
+                  <div class="mb-3">
+                    <label for="img" class="form-label">URL Imagen</label>
+                    <input type="text" class="form-control" id="img" formControlName="img">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="position" class="form-label">Profesion</label>
+                    <input type="text" class="form-control" id="position" formControlName="position">
+                    <div *ngIf="position?.invalid && position?.touched">
+                        <div *ngIf="position?.errors?.['required'] "class="text-danger">
+                            La Profesión es requerida
+                        </div>
+                        <div *ngIf="position?.errors?.['minlength'] ">
+                         La Profesión debe tener un mínimo de 5 caracteres
+                        </div>
+                    </div>
+                  </div>
+                
+
+                  <div class="mb-3">
+                    <label for="aboutMe" class="form-label">Sobre Mi</label>
+                    <input type="text" class="form-control" id="aboutMe" formControlName="aboutMe">
+                    <div *ngIf="aboutMe?.invalid && aboutMe?.touched">
+                        <div *ngIf="aboutMe?.errors?.['required'] "class="text-danger">
+                            La Reseña es requerida
+                        </div>
+                        <div *ngIf="nombre?.errors?.['minlength'] ">
+                         La Reseña debe tener un mínimo de 5 caracteres
+                        </div>
+                    </div>
+                  </div>
+                
+              </form>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="cerrarModalAcerca"  class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary"(click)="guardarAcerca()" >Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+***********
+
+
+
  </div>
 </div>

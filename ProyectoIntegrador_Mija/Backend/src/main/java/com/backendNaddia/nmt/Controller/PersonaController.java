@@ -31,20 +31,20 @@ public class PersonaController {
         ipersonaService.savePersona(persona);
         return "La persona fue creada correctamente";
     }
-    @DeleteMapping("/personas/borrar/(id)")
+    @DeleteMapping("/personas/borrar/{id}") 
     public String deletePersona(@PathVariable Long id){
         ipersonaService.deletePersona(id);
         return "La persona fue eliminada correctamente";
     }
     
-    
-    @PutMapping("/personas/editar/(id)")
+    //URL PUERTO/personas/editar/4/nombre & apellido& img & position & aboutMe
+    @PutMapping("/personas/editar/{id}")
     public Persona editPersona(@PathVariable Long id,
             @RequestParam("nombre")String nuevoNombre, 
              @RequestParam("apellido")String nuevoApellido, 
              @RequestParam("img")String nuevoImg,
              @RequestParam("position")String nuevoPosition,
-             @RequestParam("aboutMe")String nuevoaboutMe){
+             @RequestParam("aboutMe")String nuevoAboutMe){
         
         Persona persona= ipersonaService.findPersona(id);
         
@@ -52,7 +52,7 @@ public class PersonaController {
         persona.setApellido(nuevoApellido);
         persona.setImg(nuevoImg);
         persona.setPosition(nuevoPosition);
-        persona.setAboutMe(nuevoaboutMe);
+        persona.setAboutMe(nuevoAboutMe);
         
         ipersonaService.savePersona(persona);
         return persona;
